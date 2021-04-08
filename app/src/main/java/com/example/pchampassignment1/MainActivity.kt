@@ -13,23 +13,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        }
-        fun onClickNext(view: View){
+        buttonNextPage.setOnClickListener {
             var loadingDialog = LoadingDialog(this@MainActivity)
-            var i = Intent(this@MainActivity,MainActivity2::class.java)
+            var intent = Intent(this@MainActivity, MainActivity2::class.java)
             var handler = Handler()
             loadingDialog.startLoadingDialog()
             handler.postDelayed({
-                startActivityForResult(i,1)
-                loadingDialog.dismissDialog()
-            },2000)
-
+                startActivityForResult(intent,1)
+                loadingDialog.dismissDialog() },2000)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         var numText :String = data!!.getIntExtra("number",0).toString()
-        number.setText("$numText")
+        textViewNumber.setText("$numText")
     }
 }
