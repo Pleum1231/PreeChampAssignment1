@@ -13,11 +13,11 @@ class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        buttonBackPage.setOnClickListener{
+        buttonBackPage.setOnClickListener {
             val intent = Intent()
             val randomNumber = Random.nextInt(1, 10)
             intent.putExtra("number", randomNumber)
-            setResult(Activity.RESULT_OK,intent)
+            setResult(Activity.RESULT_OK, intent)
             finish()
         }
     }

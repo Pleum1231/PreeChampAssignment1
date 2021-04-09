@@ -19,15 +19,17 @@ class MainActivity : AppCompatActivity() {
             val handler = Handler()
             loadingDialog.startLoadingDialog()
             handler.postDelayed({
-                startActivityForResult(intent,1)
+                startActivityForResult(intent, 1)
                 loadingDialog.dismissDialog()
-            },2000)
+            }, 2000)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        val numberFromMainActivity2 :String = data?.getIntExtra("number",0).toString()
-        textViewNumber.text="$numberFromMainActivity2"
+        data?.let { data ->
+            val numberFromMainActivity2: String = data.getIntExtra("number", 0).toString()
+            textViewNumber.text = "$numberFromMainActivity2"
+        }
     }
 }
