@@ -14,19 +14,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         buttonNextPage.setOnClickListener {
-            var loadingDialog = LoadingDialog(this@MainActivity)
-            var intent = Intent(this@MainActivity, MainActivity2::class.java)
-            var handler = Handler()
+            val loadingDialog = LoadingDialog(this@MainActivity)
+            val intent = Intent(this@MainActivity, MainActivity2::class.java)
+            val handler = Handler()
             loadingDialog.startLoadingDialog()
             handler.postDelayed({
                 startActivityForResult(intent,1)
-                loadingDialog.dismissDialog() },2000)
+                loadingDialog.dismissDialog()
+            },2000)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        var numText :String = data!!.getIntExtra("number",0).toString()
-        textViewNumber.setText("$numText")
+        val numberFromMainActivity2 :String = data?.getIntExtra("number",0).toString()
+        textViewNumber.text="$numberFromMainActivity2"
     }
 }

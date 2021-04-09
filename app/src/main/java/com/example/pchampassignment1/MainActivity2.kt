@@ -14,10 +14,10 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         buttonBackPage.setOnClickListener{
-            var sendData= Intent()
-            var randNum = Random.nextInt(1, 10)
-            sendData.putExtra("number", randNum)
-            setResult(Activity.RESULT_OK,sendData)
+            val intent = Intent()
+            val randomNumber = Random.nextInt(1, 10)
+            intent.putExtra("number", randomNumber)
+            setResult(Activity.RESULT_OK,intent)
             finish()
         }
     }
