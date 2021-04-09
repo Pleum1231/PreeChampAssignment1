@@ -13,23 +13,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        }
-        fun onClickNext(view: View){
-            var loadingDialog = LoadingDialog(this@MainActivity)
-            var i = Intent(this@MainActivity,MainActivity2::class.java)
-            var handler = Handler()
+        buttonNextPage.setOnClickListener {
+            val loadingDialog = LoadingDialog(this@MainActivity)
+            val intent = Intent(this@MainActivity, MainActivity2::class.java)
+            val handler = Handler()
             loadingDialog.startLoadingDialog()
             handler.postDelayed({
-                startActivityForResult(i,1)
+                startActivityForResult(intent, 1)
                 loadingDialog.dismissDialog()
-            },2000)
-
+            }, 2000)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        var numText :String = data!!.getIntExtra("number",0).toString()
-        number.setText("$numText")
+        data?.let { data ->
+            val numberFromMainActivity2: String = data.getIntExtra("number", 0).toString()
+            textViewNumber.text = "$numberFromMainActivity2"
+        }
     }
 }

@@ -7,25 +7,24 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/number"
+        android:id="@+id/textViewNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Hello"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/changePage"
+        android:id="@+id/buttonNextPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="250dp"
-        android:onClick="onClickNext"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNumber" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
